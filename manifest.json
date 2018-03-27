@@ -1,0 +1,29 @@
+{
+
+  "manifest_version": 2,
+  "name": "DJ",
+  "version": "1.0",
+
+  "description": "Mix various sources and tracks",
+
+  "icons": {
+    "32": "assets/img/logo-32.png",
+    "48": "assets/img/logo-48.png",
+    "64": "assets/img/logo-64.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "assets/img/logo-32.png",
+    "default_title": "DJ",
+    "default_popup": "popup/popup.html"
+  },
+
+  "background": {
+    "page": "background/background.html"
+  }
+
+}

@@ -1,0 +1,10 @@
+body {
+	width: 800px;
+	height: 600px;
+}
+
+.nav-pills {
+	font-size: 2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+}
