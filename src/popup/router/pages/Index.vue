@@ -1,36 +1,39 @@
 <template>
   <v-container fluid>
     <v-layout text-xs-center wrap>
-      <v-flex mb-4>
-        <h1 class="display-2 font-weight-bold mb-3">Welcome to Vuetify</h1>
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers, <br />please join our online <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-flex>
-
-      <v-flex mb-5 xs12>
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
-
-        <v-layout justify-center>
-          <a v-for="(next, i) in whatsNext" :key="i" :href="next.href" class="subheading mx-3" target="_blank"> {{ next.text }} </a>
+      <v-flex xs6>
+        <v-layout>
+          <v-flex> <h3 class="mb-3">Track Name</h3> </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex>
+            <v-btn-toggle v-model="toggle_exclusive1">
+              <v-btn flat> <v-icon>skip_previous</v-icon> </v-btn>
+              <v-btn flat @click="play(1)">
+                <v-icon>{{ play_text1 }}</v-icon>
+              </v-btn>
+              <v-btn flat> <v-icon>skip_next</v-icon> </v-btn>
+            </v-btn-toggle>
+          </v-flex>
         </v-layout>
       </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Important Links</h2>
-
-        <v-layout justify-center>
-          <a v-for="(link, i) in importantLinks" :key="i" :href="link.href" class="subheading mx-3" target="_blank"> {{ link.text }} </a>
+      <v-flex xs6>
+        <v-layout>
+          <v-flex> <h3 class="mb-3">Track Name</h3> </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex>
+            <v-btn-toggle v-model="toggle_exclusive2">
+              <v-btn flat> <v-icon>skip_previous</v-icon> </v-btn>
+              <v-btn flat @click="play(2)">
+                <v-icon>{{ play_text2 }}</v-icon>
+              </v-btn>
+              <v-btn flat> <v-icon>skip_next</v-icon> </v-btn>
+            </v-btn-toggle>
+          </v-flex>
         </v-layout>
       </v-flex>
-
-      <v-flex xs12 mb-5>
-        <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
-
-        <v-layout justify-center>
-          <a v-for="(eco, i) in ecosystem" :key="i" :href="eco.href" class="subheading mx-3" target="_blank"> {{ eco.text }} </a>
-        </v-layout>
-      </v-flex>
+      <v-flex xs12> <v-slider v-model="val" :color="color" :thumb-color="thumb_color" :track-color="track_color" thumb-label></v-slider> </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -38,57 +41,32 @@
 <script>
 export default {
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuetifyjs.com',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
+    toggle_exclusive1: null,
+    toggle_exclusive2: null,
+    play_text1: 'play_arrow',
+    play_text2: 'play_arrow',
+    val: 50,
+    color: 'light-blue',
+    thumb_color: 'grey darken-1',
+    track_color: 'red',
   }),
+  methods: {
+    play(index) {
+      if (index === 1) {
+        if (this.play_text1 === 'play_arrow') {
+          this.play_text1 = 'pause';
+        } else {
+          this.play_text1 = 'play_arrow';
+        }
+      } else {
+        if (this.play_text2 === 'play_arrow') {
+          this.play_text2 = 'pause';
+        } else {
+          this.play_text2 = 'play_arrow';
+        }
+      }
+    },
+  },
 };
 </script>
 
