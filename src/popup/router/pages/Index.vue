@@ -1,18 +1,6 @@
 <template>
   <v-container>
-    <v-toolbar>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title>Title</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>Link One</v-btn>
-        <v-btn flat>Link Two</v-btn>
-        <v-btn flat>Link Three</v-btn>
-      </v-toolbar-items>
-    </v-toolbar>
     <v-layout text-xs-center wrap>
-      <v-flex xs12> logo </v-flex>
-
       <v-flex mb-4>
         <h1 class="display-2 font-weight-bold mb-3">Welcome to Vuetify</h1>
         <p class="subheading font-weight-regular">
