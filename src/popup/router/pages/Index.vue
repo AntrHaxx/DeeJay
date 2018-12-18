@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-layout text-xs-center wrap>
       <v-flex mb-4>
         <h1 class="display-2 font-weight-bold mb-3">Welcome to Vuetify</h1>
@@ -92,7 +92,4 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
-p
-  font-size: 20px
-</style>
+<style lang="sass" scoped></style>
